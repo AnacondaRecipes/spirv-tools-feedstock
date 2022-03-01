@@ -1,6 +1,6 @@
 {% set name = "spirv-tools" %}
-{% set version = "2021.2" %}
-{% set sha256 = "2416a0354a0b14b8e7b671f6f99652cc8a8a83dc9acf195dafd22fbee5e92035" %}
+{% set version = "2021.4" %}
+{% set sha256 = "d68de260708dda785d109ff1ceeecde2d2ab71142fa5bf59061bb9f47dd3bb2c" %}
 {% set build_number = 0 %}
 
 package:
@@ -11,7 +11,7 @@ source:
   # Note: there are a number of build dependencies that get downloaded via a utility in the source 
   # repo: `git-sync-deps`. This is run for both unix and windows via the build.sh and bld.bat,
   # respectively. Alternatively we could:
-  #   - list there here as sources and put them in their correct locations. 
+  #   - list them here as sources and put them in their correct locations.
   #   - build out packages of them and list them as build requirements.
   # For more information: https://github.com/KhronosGroup/SPIRV-Tools#build
   url: https://github.com/KhronosGroup/SPIRV-Tools/archive/v{{ version }}.tar.gz
@@ -27,6 +27,8 @@ requirements:
     - cmake
     - make  # [unix]
     - ninja  # [win]
+  run_constrained:                                             # [osx and x86_64]
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.12") }}  # [osx and x86_64]
 
 test:
   commands:
