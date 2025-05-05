@@ -27,6 +27,8 @@ requirements:
     - make    # [unix]
     - ninja   # [win]
     - python
+    - patch     # [unix]
+    - m2-patch  # [win]
   host:
     - spirv-headers {{ headers_version }}
   run_constrained:
