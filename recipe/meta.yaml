@@ -9,8 +9,6 @@ package:
 source:
   url: https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 6a9313fa68e061d463f616357cd24cdf1c3a27d906ea791d7ba67dd1b6666a40
-  patches:
-    - 0001-Get-package-version-and-description-from-conda-build.patch
 
 build:
   run_exports:
@@ -27,8 +25,6 @@ requirements:
     - make    # [unix]
     - ninja   # [win]
     - python
-    - patch     # [unix]
-    - m2-patch  # [win]
   host:
     - spirv-headers {{ headers_version }}
   run_constrained:
