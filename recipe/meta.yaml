@@ -1,14 +1,18 @@
-{% set version = "2025.1" %}
-# Keep this in synch with https://github.com/KhronosGroup/SPIRV-Tools/blob/v2023.2/DEPS#L14
-{% set headers_version = "1.4.309.0" %}
+{% set name = "SPIRV-Tools" %}
+{% set version = "2026.1" %}
+# Keep this in synch with spirv-headers https://github.com/KhronosGroup/SPIRV-Tools/blob/v2026.1/DEPS#L17 ->
+# spirv_headers_revision': '04f10f650d514df88b76d25e83db360142c7b174 -> 
+# https://github.com/KhronosGroup/SPIRV-Headers/commit/04f10f650d514df88b76d25e83db360142c7b174 ->
+# https://github.com/KhronosGroup/SPIRV-Headers/releases/tag/vulkan-sdk-1.4.341.0
+{% set headers_version = "1.4.341.0" %}
 
 package:
-  name: spirv-tools
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 6a9313fa68e061d463f616357cd24cdf1c3a27d906ea791d7ba67dd1b6666a40
+  url: https://github.com/KhronosGroup/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 35dc16cf2dc64be5b6bbbe86d210e6f4a82b070cffd751605a3365cd8bce2d7e
 
 build:
   run_exports:
@@ -20,10 +24,11 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
     - cmake
     - make    # [unix]
-    - ninja   # [win]
+    - ninja-base   # [win]
     - python
   host:
     - spirv-headers {{ headers_version }}
