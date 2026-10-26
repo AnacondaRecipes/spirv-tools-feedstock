@@ -1,6 +1,6 @@
 {% set name = "SPIRV-Tools" %}
-{% set version = "2026.1" %}
-# Keep this in synch with spirv-headers https://github.com/KhronosGroup/SPIRV-Tools/blob/v2026.1/DEPS#L17 ->
+{% set version = "2026.4" %}
+# Keep this in synch with spirv-headers https://github.com/KhronosGroup/SPIRV-Tools/blob/v2026.4/DEPS#L17 ->
 # spirv_headers_revision': '04f10f650d514df88b76d25e83db360142c7b174 -> 
 # https://github.com/KhronosGroup/SPIRV-Headers/commit/04f10f650d514df88b76d25e83db360142c7b174 ->
 # https://github.com/KhronosGroup/SPIRV-Headers/releases/tag/vulkan-sdk-1.4.341.0
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://github.com/KhronosGroup/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 35dc16cf2dc64be5b6bbbe86d210e6f4a82b070cffd751605a3365cd8bce2d7e
+  sha256: 92df4c377603f086c3d2a1eb2bd9b8f883a73ca890fb939d78a0cecdcc01686c
 
 build:
   run_exports:
