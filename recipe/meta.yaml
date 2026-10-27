@@ -4,7 +4,7 @@
 # spirv_headers_revision': '04f10f650d514df88b76d25e83db360142c7b174 -> 
 # https://github.com/KhronosGroup/SPIRV-Headers/commit/04f10f650d514df88b76d25e83db360142c7b174 ->
 # https://github.com/KhronosGroup/SPIRV-Headers/releases/tag/vulkan-sdk-1.4.341.0
-{% set headers_version = "1.4.341.0" %}
+{% set headers_version = "1.4.363.0" %}
 
 package:
   name: {{ name|lower }}
